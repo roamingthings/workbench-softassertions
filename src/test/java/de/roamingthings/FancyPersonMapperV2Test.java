@@ -15,16 +15,16 @@ class FancyPersonMapperV2Test {
 
         Person fancyPerson = mapToFancy(person);
 
-        SoftAssertions softly = new SoftAssertions();
-        softly.assertThat(fancyPerson.getHaare()).isEqualTo("fancy");
-        softly.assertThat(fancyPerson.getKopf()).isEqualTo(KOPF);
-        softly.assertThat(fancyPerson.getAugen()).isEqualTo(AUGEN);
-        softly.assertThat(fancyPerson.getHalsschmuck()).isEqualTo(3);
-        softly.assertThat(fancyPerson.getArme()).isEqualTo(ARME);
-        softly.assertThat(fancyPerson.getFinger()).isEqualTo(FINGER);
-        softly.assertThat(fancyPerson.getKleidung()).isEqualTo(FANCY);
-        softly.assertThat(fancyPerson.getBeine()).isEqualTo(BEINE);
-        softly.assertThat(fancyPerson.getFuesse()).isEqualTo(FUESSE);
-        softly.assertAll();
+        SoftAssertions.assertSoftly(softly -> {
+            softly.assertThat(fancyPerson.getHaare()).isEqualTo("fancy");
+            softly.assertThat(fancyPerson.getKopf()).isEqualTo(KOPF);
+            softly.assertThat(fancyPerson.getAugen()).isEqualTo(AUGEN);
+            softly.assertThat(fancyPerson.getHalsschmuck()).isEqualTo(3);
+            softly.assertThat(fancyPerson.getArme()).isEqualTo(ARME);
+            softly.assertThat(fancyPerson.getFinger()).isEqualTo(FINGER);
+            softly.assertThat(fancyPerson.getKleidung()).isEqualTo(FANCY);
+            softly.assertThat(fancyPerson.getBeine()).isEqualTo(BEINE);
+            softly.assertThat(fancyPerson.getFuesse()).isEqualTo(FUESSE);
+        });
     }
 }

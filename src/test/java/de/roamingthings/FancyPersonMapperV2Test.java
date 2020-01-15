@@ -1,11 +1,11 @@
 package de.roamingthings;
 
+import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.Test;
 
 import static de.roamingthings.BekleidungsArt.FANCY;
-import static de.roamingthings.FancyPersonMapperV2.mapToFancy;
 import static de.roamingthings.FancyPersonMapperTestData.*;
-import static org.assertj.core.api.Assertions.assertThat;
+import static de.roamingthings.FancyPersonMapperV2.mapToFancy;
 
 class FancyPersonMapperV2Test {
 
@@ -15,14 +15,16 @@ class FancyPersonMapperV2Test {
 
         Person fancyPerson = mapToFancy(person);
 
-        assertThat(fancyPerson.getHaare()).isEqualTo("fancy");
-        assertThat(fancyPerson.getKopf()).isEqualTo(KOPF);
-        assertThat(fancyPerson.getAugen()).isEqualTo(AUGEN);
-        assertThat(fancyPerson.getHalsschmuck()).isEqualTo(3);
-        assertThat(fancyPerson.getArme()).isEqualTo(ARME);
-        assertThat(fancyPerson.getFinger()).isEqualTo(FINGER);
-        assertThat(fancyPerson.getKleidung()).isEqualTo(FANCY);
-        assertThat(fancyPerson.getBeine()).isEqualTo(BEINE);
-        assertThat(fancyPerson.getFuesse()).isEqualTo(FUESSE);
+        SoftAssertions softly = new SoftAssertions();
+        softly.assertThat(fancyPerson.getHaare()).isEqualTo("fancy");
+        softly.assertThat(fancyPerson.getKopf()).isEqualTo(KOPF);
+        softly.assertThat(fancyPerson.getAugen()).isEqualTo(AUGEN);
+        softly.assertThat(fancyPerson.getHalsschmuck()).isEqualTo(3);
+        softly.assertThat(fancyPerson.getArme()).isEqualTo(ARME);
+        softly.assertThat(fancyPerson.getFinger()).isEqualTo(FINGER);
+        softly.assertThat(fancyPerson.getKleidung()).isEqualTo(FANCY);
+        softly.assertThat(fancyPerson.getBeine()).isEqualTo(BEINE);
+        softly.assertThat(fancyPerson.getFuesse()).isEqualTo(FUESSE);
+        softly.assertAll();
     }
 }
